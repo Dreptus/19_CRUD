@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Col, NavLink, Row } from 'react-bootstrap'
+import { Button, Col, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router-dom'
@@ -26,7 +26,8 @@ const Post = () => {
 
   const handleShowRemoveModal = () => setShowRemoveModal(true)
 
-  if (!listData) return navigate(-1)
+  if (!listData) return navigate(-1) //Nawiguje do poprzedniej strony
+
   return (
     <>
       <Row className='justify-content-center'>
