@@ -44,4 +44,4 @@ const initialState = {
   categories: ["News", "Sport", "Movies"],
 };
 
-export default initialState
+export default initialState;

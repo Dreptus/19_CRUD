@@ -1,27 +1,28 @@
-import { getAllPosts } from "../../../redux/postsRedux";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { useSelector } from "react-redux";
-import { Button, Card } from "react-bootstrap";
-import { dateToStr } from "../../../utils/dateToStr";
-import { Link } from "react-router-dom";
+import { getAllPosts } from '../../../redux/postsRedux'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import { useSelector } from 'react-redux'
+import { Button, Card } from 'react-bootstrap'
+
+import { dateToStr } from '../../../utils/dateToStr'
+import { Link } from 'react-router-dom'
 
 const Posts = () => {
-  const posts = useSelector(getAllPosts);
+  const posts = useSelector(getAllPosts)
   return (
     <>
       <Row>
-        {posts.map((post) => (
+        {posts.map(post => (
           <Col
             key={post.id}
             md={4}
             lg={6}
             xl={3}
-            className="justify-content-md-start mb-5 mt-5"
+            className='justify-content-md-start mb-5 mt-5'
           >
             <Card
-              style={{ minwidth: "15rem" }}
-              lassName="rounded"
+              style={{ minwidth: '15rem' }}
+              lassName='rounded'
               key={post.id}
             >
               <Card.Body>
@@ -40,8 +41,8 @@ const Posts = () => {
                 <Card.Text>
                   <span>Short Description: {post.shortDescription} </span>
                 </Card.Text>
-                <Link key={post.id} to={"/post/" + post.id}>
-                  <Button variant="primary">Read more</Button>
+                <Link key={post.id} to={'/post/' + post.id}>
+                  <Button variant='primary'>Read more</Button>
                 </Link>
               </Card.Body>
             </Card>
@@ -49,7 +50,7 @@ const Posts = () => {
         ))}
       </Row>
     </>
-  );
-};
+  )
+}
 
-export default Posts;
+export default Posts

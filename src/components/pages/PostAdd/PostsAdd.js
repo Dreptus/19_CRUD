@@ -1,7 +1,5 @@
-const PostAdd = () => { 
-    return (
-        <h1>Post to Add!</h1>
-    )
- }
+const PostAdd = () => {
+  return <h1>Post to Add!</h1>
+}
 
- export default PostAdd
+export default PostAdd

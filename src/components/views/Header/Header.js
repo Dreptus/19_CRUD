@@ -1,9 +1,7 @@
-import NavBar from '../NavBar/NavBar'
+import NavBar from "../NavBar/NavBar";
 
-const Header = () => { 
-    return(
-        <NavBar/>
-        )
- }
+const Header = () => {
+  return <NavBar />;
+};
 
- export default Header
+export default Header;
