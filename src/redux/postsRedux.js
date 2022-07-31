@@ -1,16 +1,15 @@
-import shortid from "shortid";
+import shortid from 'shortid';
 
-//selectors
+// selectors
 
 export const getAllPosts = (state) => state.posts;
-export const getPostById = ({ posts }, postId) =>
-  posts.find((post) => post.id === postId);
+export const getPostById = ({ posts }, postId) => posts.find((post) => post.id === postId);
 
 // actions
 const createActionName = (actionName) => `app/posts/${actionName}`;
-const DELETE_POST = createActionName("DELETE_POST");
-const ADD_POST = createActionName("ADD_POST");
-const EDIT_POST = createActionName("EDIT_POST");
+const DELETE_POST = createActionName('DELETE_POST');
+const ADD_POST = createActionName('ADD_POST');
+const EDIT_POST = createActionName('EDIT_POST');
 
 // action creators
 
@@ -25,11 +24,9 @@ const postsReducer = (statePart = [], action) => {
     case DELETE_POST:
       return statePart.filter((post) => post.id !== action.payload);
     case EDIT_POST:
-      return statePart.map((post) =>
-        post.id === action.payload.postId
-          ? { ...post, ...action.payload }
-          : post
-      );
+      return statePart.map((post) => (post.id === action.payload.postId
+        ? { ...post, ...action.payload }
+        : post));
     default:
       return statePart;
   }

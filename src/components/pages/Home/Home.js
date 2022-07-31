@@ -1,8 +1,8 @@
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Posts from "../../features/Post/Posts";
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import Posts from '../../features/Post/Posts';
 
-const Home = () => {
+function Home() {
   return (
     <>
       <div className="d-flex justify-content-between">
@@ -14,6 +14,6 @@ const Home = () => {
       <Posts />
     </>
   );
-};
+}
 
 export default Home;

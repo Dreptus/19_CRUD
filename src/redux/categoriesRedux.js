@@ -1,7 +1,6 @@
-//selectors
-export const getAllCategories = state => state.categories
-export const getPostByCategory = ({ posts }, categoryId) =>
-  posts.filter(post => post.category === categoryId)
+// selectors
+export const getAllCategories = (state) => state.categories;
+export const getPostByCategory = ({posts}, categoryId) => posts.filter((post) => post.category === categoryId);
 
 // actions
 
@@ -10,8 +9,8 @@ export const getPostByCategory = ({ posts }, categoryId) =>
 const categoriesReducer = (statePart = [], action) => {
   switch (action.type) {
     default:
-      return statePart
+      return statePart;
   }
-}
+};
 
-export default categoriesReducer
+export default categoriesReducer;

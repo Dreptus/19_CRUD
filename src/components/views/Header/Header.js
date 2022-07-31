@@ -1,7 +1,7 @@
-import NavBar from "../NavBar/NavBar";
+import NavBar from '../NavBar/NavBar';
 
-const Header = () => {
+function Header() {
   return <NavBar />;
-};
+}
 
 export default Header;
