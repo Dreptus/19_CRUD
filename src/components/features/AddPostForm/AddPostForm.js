@@ -1,24 +1,22 @@
-import {useDispatch} from 'react-redux';
-import {useNavigate} from 'react-router';
-import addPost from '../../../redux/postsRedux';
+import { useDispatch } from 'react-redux';
+import { addPost } from '../../../redux/postRedux';
+import { useNavigate } from 'react-router-dom';
 import PostForm from '../PostForm/PostForm';
 
+const AddPostForm = () => {
+     const navigate = useNavigate();
+     const dispatch = useDispatch();
 
-const AddForm = () => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+     const handleSubmit = post => {
+     dispatch(addPost(post));
+     navigate('/')
+     };
 
-    const handleSubmit = (post) => {
-        dispatch(addPost(post));
-        navigate('/');
-    };
+     const actionText = "Add post";
 
-    const actionText = 'Add Post';
-    return (
-        <>
-            <PostForm action={handleSubmit} actionText={actionText} />
-        </>
-    );
+     return (
+          <PostForm action={handleSubmit} actionText={actionText} />
+     );
 };
 
-export default AddForm;
+export default AddPostForm;

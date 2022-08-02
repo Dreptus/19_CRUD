@@ -1,14 +1,17 @@
-import {useState} from 'react';
-import {Button, Col, Row} from 'react-bootstrap';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigate, useParams} from 'react-router';
-import {Link} from 'react-router-dom';
-import {getPostById, deletePost} from '../../../redux/postsRedux';
-import {dateToStr} from '../../../utils/dateToStr';
-import RemoveModal from '../../features/RemoveModal/RemoveModal';
+import { Button, Row, Col } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getPostById } from "../../../redux/postRedux";
+import { useState } from "react";
+import RemoveModal from "../../features/RemoveModal/RemoveModal";
+import { useDispatch } from "react-redux";
+import { deletePost } from "../../../redux/postRedux";
+import { Navigate, Link } from "react-router-dom";
+import { dateToStr } from "../../../utils/dateToStr";
+import { useNavigate } from "react-router-dom";
 
 const Post = () => {
-  const {id} = useParams();
+  const { id } = useParams();
   let navigate = useNavigate();
 
   const listData = useSelector((state) => getPostById(state, id));
@@ -62,12 +65,11 @@ const Post = () => {
             <b>Category: </b>
             {listData.category}
           </p>
-          <p dangerouslySetInnerHTML={{__html: listData.content}} />
+          <p dangerouslySetInnerHTML={{ __html: listData.content }} />
         </Col>
       </Row>
     </>
   );
 };
-
 
 export default Post;

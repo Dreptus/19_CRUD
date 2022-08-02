@@ -1,5 +1,17 @@
-function PostEdit() {
-  return <h1>Post to edit!</h1>;
-}
+// import PostForm from "../PostForm/PostForm";
 
-export default PostEdit;
+// const PostEdit = () => {
+
+
+
+
+//      return (
+//           <>
+//           <h1>PostEdit</h1>
+//                <PostForm title={'jebac'} />
+//           </>
+
+//      );
+// }
+
+// export default PostEdit;

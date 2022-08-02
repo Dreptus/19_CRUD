@@ -1,37 +1,47 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router';
-import { editPost, getPostById } from '../../../redux/postsRedux';
-import PostForm from '../PostForm/PostForm';
+import PostForm from "../PostForm/PostForm";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { editPost } from "../../../redux/postRedux";
+import { useParams } from "react-router-dom";
+import { getPostById } from '../../../redux/postRedux';
+import { useSelector } from "react-redux";
+import dateFormat from "dateformat";
+import { Navigate } from "react-router-dom";
 
-const EditPost = () => {
-	const { postId } = useParams();
 
-	const dispatch = useDispatch();
-	const navigate = useNavigate();
+const EditPostForm = () => {
 
-	const postData = useSelector(state => getPostById(state, postId));
+     const { postId } = useParams();
 
-	const handleSubmit = post => {
-		dispatch(editPost({ ...post, postId }));
-		navigate(-2);
-	};
+     const dispatch = useDispatch();
+     const navigate = useNavigate();
 
-	const actionText = 'Edit Post';
+     const postData = useSelector((state) => getPostById(state, postId));
 
-	return (
-		<>
-			<h1>Edit Post</h1>
-			<PostForm
-				action={handleSubmit}
-				actionText={actionText}
-				title={postData.title}
-				author={postData.author}
-				shortDesription={postData.shortDesription}
-				content={postData.content}
-				id={postId}
-			/>
-		</>
-	);
-};
+     const handleSubmit = post => {
+               dispatch(editPost({ ...post, postId }));
+               navigate(-2)
+     };
 
-export default EditPost;
+     const actionText = 'Edit post'
+     // if(!postData) return <Navigate to="/" />
+     return (
+          <>
+               <h1>Edit Post</h1>
+               <PostForm
+                    action={handleSubmit}
+                    actionText={actionText}
+                    title={postData.title}
+                    author={postData.author}
+                    // publishedDate={dateFormat(postData.publishedDate, "yyyy-mm-dd")}
+                    publishedDate={postData.publishedDate}
+                    category={postData.category}
+                    shortDescription={postData.shortDescription}
+                    content={postData.content}
+                    id={postId}
+               />
+          </>
+     );
+}
+
+export default EditPostForm;
